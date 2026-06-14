@@ -1,0 +1,328 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BASE ===== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* ===== ТЁМНАЯ ТЕМА ===== */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #ccc;
+}
+
+body.dark-mode .book {
+    background-color: #2c2c2c;
+    border-color: #444;
+}
+
+body.dark-mode .book-info p {
+    color: #999;
+}
+
+body.dark-mode .search-results {
+    background-color: #2c2c2c;
+    border-color: #444;
+}
+
+body.dark-mode .result-item {
+    border-color: #444;
+}
+
+body.dark-mode .result-info .author {
+    color: #999;
+}
+
+body.dark-mode .result-item .add-btn {
+    background-color: #3a3a3a;
+    border-color: #555;
+    color: #eee;
+}
+
+body.dark-mode .result-item .add-btn:hover {
+    background-color: #444;
+}
+
+body.dark-mode .edit-btn {
+    background-color: #3a3a3a;
+    border-color: #555;
+    color: #eee;
+}
+
+body.dark-mode .edit-btn:hover {
+    background-color: #444;
+}
+
+body.dark-mode .read-btn {
+    background-color: #3a3a3a;
+    border-color: #555;
+    color: #eee;
+}
+
+body.dark-mode .read-btn:hover {
+    background-color: #444;
+}
+
+body.dark-mode .del-btn {
+    background-color: #3a3a3a;
+}
+
+/* ===== ТЕМА КНОПКА ===== */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ccc;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+}
+
+#theme-toggle:hover {
+    color: white;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    height: 56px;
+    background-color: #2c2c2c;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+nav .nav-links a {
+    color: #ccc;
+    font-size: 16px;
+}
+
+nav .nav-links a:hover {
+    color: white;
+}
+
+/* ===== SEARCH (в навбаре) ===== */
+.nav-search {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-search input {
+    padding: 6px 12px;
+    font-size: 13px;
+    border: none;
+    border-radius: 6px;
+    background: #444;
+    color: white;
+    width: 200px;
+}
+
+.nav-search input::placeholder {
+    color: #aaa;
+}
+
+.nav-search button {
+    padding: 6px 14px;
+    font-size: 13px;
+    border: none;
+    border-radius: 6px;
+    background: #555;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-search button:hover {
+    background: #666;
+}
+
+/* ===== РЕЗУЛЬТАТЫ ПОИСКА ===== */
+.search-results {
+    display: none;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 12px 24px;
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-item img {
+    width: 40px;
+    height: 58px;
+    object-fit: cover;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.result-info {
+    flex: 1;
+}
+
+.result-info .title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.result-info .author {
+    font-size: 12px;
+    color: #777;
+    margin-top: 2px;
+}
+
+.result-item .add-btn {
+    padding: 5px 12px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+}
+
+.result-item .add-btn:hover {
+    background: #f0f0f0;
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+.content {
+    max-width: 700px;
+    margin: 32px auto;
+    padding: 0 16px;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.content-header h1 {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.counter {
+    font-size: 13px;
+    color: #999;
+    margin-left: 8px;
+}
+
+.edit-btn {
+    padding: 6px 16px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    color: #555;
+}
+
+.edit-btn:hover {
+    background: #f0f0f0;
+}
+
+/* ===== КАРТОЧКА КНИГИ ===== */
+.book {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.book.dragging {
+    opacity: 0.5;
+}
+
+.drag-handle {
+    color: #aaa;
+    cursor: grab;
+    font-size: 18px;
+    padding: 0 4px;
+}
+
+.book img {
+    width: 44px;
+    height: 62px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #ddd;
+    flex-shrink: 0;
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-info h2 {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.book-info p {
+    font-size: 12px;
+    color: #777;
+    margin-top: 3px;
+}
+
+.book-btns {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.read-btn {
+    padding: 5px 14px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+}
+
+.read-btn:hover {
+    background: #f0f0f0;
+}
+
+.del-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    border: 1px solid #f09595;
+    border-radius: 6px;
+    background: white;
+    color: #a32d2d;
+    cursor: pointer;
+}
+
+.del-btn:hover {
+    background: #fff0f0;
+}

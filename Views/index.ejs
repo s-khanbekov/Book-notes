@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EBooks</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <button id="theme-toggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <path d="M21.9548 12.9564C20.5779 15.3717 17.9791 17.0001 15 17.0001C10.5817 17.0001 7 13.4184 7 9.00008C7 6.02072 8.62867 3.42175 11.0443 2.04492C5.96975 2.52607 2 6.79936 2 11.9998C2 17.5227 6.47715 21.9998 12 21.9998C17.2002 21.9998 21.4733 18.0305 21.9548 12.9564Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg></button>
+            <a href="/" style="text-decoration: underline; font-size: 16px;">EBooks</a>
+        </div>
+        <div class="nav-search">
+            <input type="text" id="search-input" placeholder="Search books..." />
+            <button id="search-btn">Search</button>
+        </div>
+    </nav>
+
+    <div class="search-results" id="search-results"></div>
+
+    <div class="content">
+    <div class="content-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <h1>My Books</h1>
+            <span class="counter"><%= listBooks.length %> / 10</span>
+        </div>
+        <button class="edit-btn" id="edit-btn">Edit</button>
+    </div>
+
+    <div class="book-list" id="book-list">
+        <% listBooks.forEach(book => { %>
+        <div class="book" data-id="<%= book.id %>" draggable="true">
+            <span class="drag-handle" style="display:none">☰</span>
+            <img src="https://covers.openlibrary.org/b/id/<%= book.cover_id %>-M.jpg" alt="<%= book.title %>" />
+            <div class="book-info">
+                <h2><%= book.title %></h2>
+                <p>Author: <%= book.author %></p>
+            </div>
+            <div class="book-btns">
+               <a href="https://openlibrary.org<%= book.work_key %>" target="_blank">
+                    <button class="read-btn">Read</button>
+                </a>
+
+                <button class="del-btn" data-id="<%= book.id %>" style="display:none">Delete</button>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
